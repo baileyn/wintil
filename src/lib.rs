@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 mod util;
 
 #[cfg(feature = "Win32_System_Diagnostics_ToolHelp")]
@@ -13,3 +11,9 @@ mod shell;
 
 #[cfg(feature = "Win32_UI_Shell")]
 pub use shell::*;
+
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+mod debug;
+
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub use debug::*;

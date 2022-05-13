@@ -1,5 +1,8 @@
 use std::io;
 
+mod process;
+pub use process::*;
+
 use windows::Win32::{Foundation::HANDLE, System::Diagnostics::ToolHelp};
 
 type ProcessEntry = ToolHelp::PROCESSENTRY32W;
