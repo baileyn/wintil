@@ -1,0 +1,18 @@
+[package]
+name = "wintil"
+version = "0.1.0"
+edition = "2021"
+authors = ["Nicholas Bailey"]
+description = "Helper crate for safe(r) windows function access"
+license = "MIT OR Apache-2.0"
+keywords = ["windows", "util"]
+
+[features]
+# Default is set for testing purposes.
+default = ["Win32_System_Diagnostics_ToolHelp"]
+Win32_System_Threading = ["windows/Win32_System_Threading"]
+Win32_System_Diagnostics_ToolHelp = ["windows/Win32_System_Diagnostics_ToolHelp"]
+
+[dependencies]
+windows = {version = "0.36.1", features = ["Win32_Foundation"]}
+
