@@ -1,5 +1,5 @@
 pub use windows;
-mod util;
+pub mod util;
 
 #[cfg(feature = "Win32_System_Diagnostics_ToolHelp")]
 mod threading;
