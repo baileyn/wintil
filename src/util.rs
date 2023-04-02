@@ -71,22 +71,22 @@ impl Close for HANDLE {
     }
 }
 
-#[derive(Debug)]
-pub struct AutoClosing<T: Close + std::fmt::Debug>(T);
+#[derive(Clone, Debug)]
+pub struct AutoClosing<T: Close + Clone + std::fmt::Debug>(T);
 
-impl<T: Close + std::fmt::Debug> From<T> for AutoClosing<T> {
+impl<T: Close + Clone + std::fmt::Debug> From<T> for AutoClosing<T> {
     fn from(item: T) -> Self {
         Self(item)
     }
 }
 
-impl<T: Close + std::fmt::Debug> Drop for AutoClosing<T> {
+impl<T: Close + Clone + std::fmt::Debug> Drop for AutoClosing<T> {
     fn drop(&mut self) {
         self.0.close();
     }
 }
 
-impl<T: Close + std::fmt::Debug> Deref for AutoClosing<T> {
+impl<T: Close + Clone + std::fmt::Debug> Deref for AutoClosing<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
