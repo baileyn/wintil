@@ -2,7 +2,7 @@ use crate::{
     util::{self, AutoClosing},
     CreateToolhelp32Snapshot, Module32First, Module32Next, Process32First, Process32Next,
 };
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::io;
 use std::string::FromUtf16Error;
 use windows::Win32::{
@@ -16,7 +16,7 @@ use windows::Win32::{
     },
 };
 
-#[derive(Debug, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Process {
     pub pid: u32,
@@ -26,7 +26,7 @@ pub struct Process {
     pub exe_file: String,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Module {
     pub pid: u32,
