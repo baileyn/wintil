@@ -1,3 +1,4 @@
+pub use windows;
 mod util;
 
 #[cfg(feature = "Win32_System_Diagnostics_ToolHelp")]
